@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiderBoy INICIO</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            overflow-x: hidden; /* Para evitar la barra de desplazamiento horizontal */
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 12px 8px 12px 32px; /* Aumenté el padding vertical para mejor espaciado */
+            text-decoration: none;
+            font-size: 18px; /* Reduje un poco el tamaño de la fuente para que quepa mejor el texto junto al icono */
+            color: #818181;
+            display: flex; /* Usamos flexbox para alinear icono y texto */
+            align-items: center; /* Centramos verticalmente el icono y el texto */
+            transition: 0.3s;
+            margin-bottom: 5px; /* Añadí un pequeño margen inferior entre los elementos */
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2; /* Asegura que esté por encima de la barra lateral */
+            /* Estilos para redondear las puntas y modificar la apariencia */
+            border-radius: 5px; /* Añade un pequeño radio para redondear las esquinas */
+            /* Puedes modificar el padding para ajustar el tamaño visual */
+            padding: 8px 12px;
+            /* Puedes añadir más estilos como un borde o sombra si lo deseas */
+            /* border: 1px solid #333; */
+            /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+        }
+
+        .openbtn:hover {
+            background-color: #444;
+        }
+
+        /* Estilos para los iconos */
+        .icon {
+            height: 20px; /* Ajusta el tamaño del icono según necesites */
+            width: 20px;
+            margin-right: 10px;
+            display: inline-block; /* Asegura que el margen funcione correctamente */
+            vertical-align: middle; /* Alinea verticalmente con el texto */
+        }
+
+        /* Animación CSS para los enlaces al pasar el ratón */
+        .sidebar a {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #f1f1f1;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .sidebar a:hover::before {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#"><img src="https://i.ibb.co/39RwC9tJ/home-9713745.png" alt="Inicio" class="icon"> Inicio</a>
+        <a href="#"><img src="https://icones.pro/wp-content/uploads/2021/04/symbole-telephone-portable-gris.png" alt="Redes" class="icon"> Redes</a>
+        <a href="#"><img src="https://icones.pro/wp-content/uploads/2021/03/icone-d-appel-et-d-appel-telephonique-gris.png" alt="Contactos" class="icon"> Contactanos</a>
+        <a href="#"><img src="https://icones.pro/wp-content/uploads/2021/05/symbole-d-avertissement-gris.png" alt="Ayuda" class="icon"> Ayuda</a>
+        <a href="#"><img src="https://icones.pro/wp-content/uploads/2021/05/icone-point-d-interrogation-question-gris.png" alt="Informacion" class="icon"> Info</a>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+        <h2>Contenido Principal</h2>
+        <p>Este es el contenido principal de tu página. texto de prueba para la pagina
+          nada de esto servira pir ahora
+          solo es para pruebas
+        </p>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById("mySidebar");
+        const mainContent = document.getElementById("main");
+        const openBtn = document.querySelector(".openbtn");
+
+        function openNav() {
+            sidebar.style.width = "250px";
+            mainContent.style.marginLeft = "250px";
+            openBtn.style.display = "none"; /* Oculta el botón de abrir */
+        }
+
+        function closeNav() {
+            sidebar.style.width = "0";
+            mainContent.style.marginLeft= "0";
+            openBtn.style.display = "block"; /* Muestra el botón de abrir */
+        }
+    </script>
+
+</body>
+</html>
